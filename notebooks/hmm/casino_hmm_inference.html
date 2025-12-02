@@ -435,8 +435,8 @@ This is from the book:</p>
 <section id="make-a-categorical-hmm">
 <h2>Make a Categorical HMM<a class="headerlink" href="#make-a-categorical-hmm" title="Link to this heading">#</a></h2>
 <p>First, we’ll construct a categorical hidden Markov model (HMM). The model has discrete latent states <span class="math notranslate nohighlight">\(z_t \in \{1,2\}\)</span> to specify which of the two dice is used on the <span class="math notranslate nohighlight">\(t\)</span>-th roll. You observe the outcomes, or “emissions,” <span class="math notranslate nohighlight">\(y_t \in \{1,\ldots,6\}\)</span>. The categorical HMM specifies a joint distribution over the latent states and emissions,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7f18580-9a60-4871-a77e-0e2129f1cd9f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-a7f18580-9a60-4871-a77e-0e2129f1cd9f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-47b7a32a-ac98-4dd5-bbc4-9def75490ba0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-47b7a32a-ac98-4dd5-bbc4-9def75490ba0" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(y_{1:T}, z_{1:T} \mid \theta) 
 &amp;= \mathrm{Cat}(z_1 \mid \pi) 
 \prod_{t=2}^T \mathrm{Cat}(z_t \mid A_{z_{t-1}}) 
@@ -550,8 +550,8 @@ B.shape: (2, 6)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>true_states.shape: (300,)
 emissions.shape: (300, 1)
 
-First few states:     [1 1 1 1 1]
-First few emissions:  [5 0 5 5 5]
+First few states:     [0 0 0 0 0]
+First few emissions:  [1 1 5 5 3]
 </pre></div>
 </div>
 </div>
@@ -613,7 +613,7 @@ batch_emissions.shape: (5, 300, 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c93083a615e9d45c7855b93857eb5af5954d0c1ac2c419f752fd23afd58786fd.png" src="../../_images/c93083a615e9d45c7855b93857eb5af5954d0c1ac2c419f752fd23afd58786fd.png" />
+<img alt="../../_images/7d9844d537d1b204565fe248f92f160bd9833c3e7c299b0627a97fbd4e4242c3.png" src="../../_images/7d9844d537d1b204565fe248f92f160bd9833c3e7c299b0627a97fbd4e4242c3.png" />
 </div>
 </div>
 <p>The difference in outcomes is borne out in the empirical frequencies of seeing a six in each state.</p>
@@ -629,7 +629,7 @@ batch_emissions.shape: (5, 300, 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>empirical frequencies:  [0.14970061 0.46616542]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>empirical frequencies:  [0.15463917 0.49056605]
 expected frequencies:   [0.16666667 0.5       ]
 </pre></div>
 </div>
@@ -640,8 +640,8 @@ expected frequencies:   [0.16666667 0.5       ]
 <section id="filtering-forwards-algorithm">
 <h2>Filtering (forwards algorithm)<a class="headerlink" href="#filtering-forwards-algorithm" title="Link to this heading">#</a></h2>
 <p>In an HMM, <em>filtering</em> means computing the probabilities of the latent state at time <span class="math notranslate nohighlight">\(t\)</span> given emissions up to and including time <span class="math notranslate nohighlight">\(t\)</span>. Mathematically, the filtering distributions are,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c87c954-0928-4c3b-9807-6d8e12b8a6bb">
-<span class="eqno">(2)<a class="headerlink" href="#equation-3c87c954-0928-4c3b-9807-6d8e12b8a6bb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f243b4fc-93c7-47e6-8b42-2e7e83948b4f">
+<span class="eqno">(2)<a class="headerlink" href="#equation-f243b4fc-93c7-47e6-8b42-2e7e83948b4f" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(z_t \mid y_{1:t}, \theta) &amp;\propto \sum_{z_1} \cdots \sum_{z_{t-1}} p(z_{1:t}, y_{1:t} \mid \theta)
 \end{align}\]</div>
 <p>The forward filtering algorithm (<a class="reference external" href="https://github.com/probml/pml2-book/releases/tag/2022-10-16">Murphy, 2023</a>; Ch 8.2.2) computes these probabilities for all timesteps <span class="math notranslate nohighlight">\(t\)</span> in recursive fashion. It also returns an estimate of the <em>marginal likelihood</em>, <span class="math notranslate nohighlight">\(p(y_{1:T} \mid \theta)\)</span>, which is useful for model comparison and fitting.</p>
@@ -655,7 +655,7 @@ p(z_t \mid y_{1:t}, \theta) &amp;\propto \sum_{z_1} \cdots \sum_{z_{t-1}} p(z_{1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>marginal likelihood: -517.95
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>marginal likelihood: -524.68
 posterior.filtered_probs.shape: (300, 2)
 </pre></div>
 </div>
@@ -691,7 +691,7 @@ posterior.filtered_probs.shape: (300, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/447a8ad6816e6fa93e04e0313a569b48e0834444eeeaab0d393255dc64c9486d.png" src="../../_images/447a8ad6816e6fa93e04e0313a569b48e0834444eeeaab0d393255dc64c9486d.png" />
+<img alt="../../_images/9c62eca895c472309e14bc2c7e8b1eafb484546074195dc808fe74d2e8485960.png" src="../../_images/9c62eca895c472309e14bc2c7e8b1eafb484546074195dc808fe74d2e8485960.png" />
 </div>
 </div>
 </section>
@@ -699,8 +699,8 @@ posterior.filtered_probs.shape: (300, 2)
 <section id="smoothing-forwards-backwards-algorithm">
 <h2>Smoothing (forwards-backwards algorithm)<a class="headerlink" href="#smoothing-forwards-backwards-algorithm" title="Link to this heading">#</a></h2>
 <p><em>Smoothing</em> means computing the probabilities of the latent state at time <span class="math notranslate nohighlight">\(t\)</span> given all emissions, including those that come after. Mathematically, the smoothing distributions are,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7dc6d768-42c2-423a-aa66-7bc52f32036e">
-<span class="eqno">(3)<a class="headerlink" href="#equation-7dc6d768-42c2-423a-aa66-7bc52f32036e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a0d1cb83-3f45-432f-b6ca-e472b42aaa7e">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a0d1cb83-3f45-432f-b6ca-e472b42aaa7e" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(z_t \mid y_{1:T}, \theta) &amp;\propto \sum_{z_1} \cdots \sum_{z_{t-1}} \sum_{z_{t+1}} \cdots \sum_{z_T} p(z_{1:T}, y_{1:T} \mid \theta).
 \end{align}\]</div>
 <p>The forward-backward algorithm (<a class="reference external" href="https://github.com/probml/pml2-book/releases/tag/2022-10-16">Murphy, 2023</a>; Ch 8.2.4) computes these probabilities for all timesteps <span class="math notranslate nohighlight">\(t\)</span> in recursive fashion.</p>
@@ -726,7 +726,7 @@ p(z_t \mid y_{1:T}, \theta) &amp;\propto \sum_{z_1} \cdots \sum_{z_{t-1}} \sum_{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2ea1f40395fc60446e27ddb09917b55b1912075b61ac126b9a52232d246ed3c8.png" src="../../_images/2ea1f40395fc60446e27ddb09917b55b1912075b61ac126b9a52232d246ed3c8.png" />
+<img alt="../../_images/e0bc06736fc042050a3ceb06ed3c029dc249adb5b49fdc39894391ed8295d760.png" src="../../_images/e0bc06736fc042050a3ceb06ed3c029dc249adb5b49fdc39894391ed8295d760.png" />
 </div>
 </div>
 <p>Compare the smoothed probabilities to the filtered ones. See how the sharp rises in probability (e.g. around time step 235) are attenuated in the smoothing distribution? That’s because the filtering distribution is sensitive to when the die comes up six, thinking it might indicate a switch to the loaded die. The smoothing distributions benefit from future outcomes, which suggest that the six was just a chance event.</p>
@@ -734,8 +734,8 @@ p(z_t \mid y_{1:T}, \theta) &amp;\propto \sum_{z_1} \cdots \sum_{z_{t-1}} \sum_{
 <section id="most-likely-state-sequence-viterbi-algorithm">
 <h2>Most likely state sequence (Viterbi algorithm)<a class="headerlink" href="#most-likely-state-sequence-viterbi-algorithm" title="Link to this heading">#</a></h2>
 <p>Finally, we can compute the most likely state sequence (aka <em>maximum a posteriori</em> or “MAP” sequence) using the Viterbi algorithm (<a class="reference external" href="https://github.com/probml/pml2-book/releases/tag/2022-10-16">Murphy, 2023</a>; Ch 8.2.7). This dynamic programming algorithm solves for</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5c53da2-d3a0-4b8a-90e8-2ba063e2984d">
-<span class="eqno">(4)<a class="headerlink" href="#equation-e5c53da2-d3a0-4b8a-90e8-2ba063e2984d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-18c75f00-6c03-4d97-b1db-e3a60da7f2d9">
+<span class="eqno">(4)<a class="headerlink" href="#equation-18c75f00-6c03-4d97-b1db-e3a60da7f2d9" title="Permalink to this equation">#</a></span>\[\begin{align}
 z_{1:T}^\star &amp;= \text{arg max}_{z_{1:T}} \; p(z_{1:T}, y_{1:T} \mid \theta).
 \end{align}\]</div>
 <p>You can compute the MAP sequence with the following code.</p>
@@ -768,7 +768,7 @@ z_{1:T}^\star &amp;= \text{arg max}_{z_{1:T}} \; p(z_{1:T}, y_{1:T} \mid \theta)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/16397a3e42f950e2682c6bdab9d76a206568dc42e4a26cbb4d4494532778623f.png" src="../../_images/16397a3e42f950e2682c6bdab9d76a206568dc42e4a26cbb4d4494532778623f.png" />
+<img alt="../../_images/e9ea8ac5455f8962a4033cec4c30f8c5c351753ade22fb602e6ab574ce7a6036.png" src="../../_images/e9ea8ac5455f8962a4033cec4c30f8c5c351753ade22fb602e6ab574ce7a6036.png" />
 </div>
 </div>
 </section>
