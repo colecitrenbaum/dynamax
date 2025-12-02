@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -413,10 +413,10 @@ p(\theta) &amp;= \mathrm{Dir}(\pi \mid \alpha 1_K) \prod_{k=1}^K \mathrm{Dir}(A_
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -571,13 +571,13 @@ Some of the HMM parameters have constraints.  Dynamax uses <em>bijectors</em> to
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Randomly initialized parameters
 initial probs:
-[0.635 0.365]
+[0.793 0.207]
 transition matrix:
-[[0.920 0.080]
- [0.023 0.977]]
+[[0.833 0.167]
+ [0.090 0.910]]
 emission probs:
-[[0.569 0.016 0.037 0.150 0.164 0.064]
- [0.127 0.141 0.070 0.306 0.058 0.298]]
+[[0.145 0.115 0.024 0.136 0.187 0.393]
+ [0.010 0.119 0.416 0.325 0.068 0.061]]
 </pre></div>
 </div>
 </div>
@@ -744,7 +744,7 @@ By iteratively performing these two steps, the algorithm converges to a local ma
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b721c233023062449de85aa03bddef929295d6421feda2412bb6bb7745766fe.png" src="../../_images/3b721c233023062449de85aa03bddef929295d6421feda2412bb6bb7745766fe.png" />
+<img alt="../../_images/4d4b401006a444b69d7e90f0a7d7e76ab569247cfc10c6e35eb156a02ec2f11d.png" src="../../_images/4d4b401006a444b69d7e90f0a7d7e76ab569247cfc10c6e35eb156a02ec2f11d.png" />
 </div>
 </div>
 <p>For this problem, EM and Adam with a well-tuned learning rate converge the fastest. SGD and full-batch gradient descent appear to get stuck in a local optimum. By contrast, EM and Adam match the loss under the true parameters, and indeed if we look at the parameters below, they nearly recover the true parameters up to label switching.</p>
@@ -779,23 +779,23 @@ emission probs:
 
 EM Estimated Parameters:
 initial probs:
-[0.510 0.490]
+[0.628 0.372]
 transition matrix:
-[[0.947 0.053]
- [0.082 0.918]]
+[[0.909 0.091]
+ [0.053 0.947]]
 emission probs:
-[[0.167 0.171 0.169 0.172 0.166 0.156]
- [0.105 0.105 0.113 0.105 0.111 0.462]]
+[[0.110 0.106 0.101 0.110 0.105 0.468]
+ [0.171 0.173 0.171 0.164 0.164 0.157]]
 
 Adam (lr=0.1) Estimated Parameters:
 initial probs:
-[0.392 0.608]
+[0.560 0.440]
 transition matrix:
-[[0.944 0.056]
- [0.086 0.914]]
+[[0.910 0.090]
+ [0.052 0.948]]
 emission probs:
-[[0.164 0.170 0.172 0.175 0.166 0.153]
- [0.108 0.106 0.110 0.104 0.108 0.465]]
+[[0.107 0.104 0.103 0.111 0.104 0.471]
+ [0.170 0.173 0.172 0.165 0.164 0.156]]
 </pre></div>
 </div>
 </div>

@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -570,7 +570,7 @@ If you set the Markov chain up carefully, you can ensure that the parameters wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4bee7e541a64f0c90d787c4b24b57e48e6c5489a07edadf72c5ef8112332ed86.png" src="../../_images/4bee7e541a64f0c90d787c4b24b57e48e6c5489a07edadf72c5ef8112332ed86.png" />
+<img alt="../../_images/38027c01dfef81944a87853c5a9f0c6632fe783b7040bab9843b9fb2d2374e1f.png" src="../../_images/38027c01dfef81944a87853c5a9f0c6632fe783b7040bab9843b9fb2d2374e1f.png" />
 </div>
 </div>
 </section>
@@ -673,49 +673,131 @@ If you set the Markov chain up carefully, you can ensure that the parameters wil
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running window adaptation
 </pre></div>
 </div>
-<div class="output text_html">
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-</div><div class="output text_html">
-    <div>
-      <progress value='10' class='' max='10' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [10/10 00:00&lt;?]
-    </div>
-    </div><div class="output text_html">
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-</div><div class="output text_html">
-    <div>
-      <progress value='1000' class='' max='1000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [1000/1000 00:15&lt;00:00]
-    </div>
-    </div></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">params</span><span class="p">,</span> <span class="n">param_props</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init_key</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">sample_size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">param_samples</span><span class="p">,</span> <span class="n">lps</span> <span class="o">=</span> <span class="n">fit_hmc</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                              <span class="n">params</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span>                              <span class="n">param_props</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span>                              <span class="n">hmc_key</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                              <span class="n">sample_size</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                              <span class="n">emissions</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span>                              <span class="n">num_integration_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>                              <span class="n">warmup_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="nn">Cell In[8], line 32,</span> in <span class="ni">fit_hmc</span><span class="nt">(model, initial_params, props, key, num_samples, emissions, inputs, warmup_steps, num_integration_steps, verbose)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">warmup</span> <span class="o">=</span> <span class="n">blackjax</span><span class="o">.</span><span class="n">window_adaptation</span><span class="p">(</span><span class="n">blackjax</span><span class="o">.</span><span class="n">hmc</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>                                     <span class="n">_logprob</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>                                     <span class="n">num_integration_steps</span><span class="o">=</span><span class="n">num_integration_steps</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>                                     <span class="n">progress_bar</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">init_key</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">jr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">32</span> <span class="p">(</span><span class="n">hmc_initial_state</span><span class="p">,</span> <span class="n">hmc_params</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">warmup</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init_key</span><span class="p">,</span> <span class="n">initial_unc_params</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="n">warmup_steps</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="n">hmc_kernel</span> <span class="o">=</span> <span class="n">blackjax</span><span class="o">.</span><span class="n">hmc</span><span class="p">(</span><span class="n">_logprob</span><span class="p">,</span> <span class="o">**</span><span class="n">hmc_params</span><span class="p">)</span><span class="o">.</span><span class="n">step</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="nd">@jit</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="k">def</span><span class="w"> </span><span class="nf">hmc_step</span><span class="p">(</span><span class="n">hmc_state</span><span class="p">,</span> <span class="n">step_key</span><span class="p">):</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/blackjax/adaptation/window_adaptation.py:340,</span> in <span class="ni">window_adaptation.&lt;locals&gt;.run</span><span class="nt">(rng_key, position, num_steps)</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="n">schedule</span> <span class="o">=</span> <span class="n">build_schedule</span><span class="p">(</span><span class="n">num_steps</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">340</span> <span class="n">last_state</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">scan_fn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="n">one_step</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="n">start_state</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>     <span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_steps</span><span class="p">),</span> <span class="n">keys</span><span class="p">,</span> <span class="n">schedule</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span> <span class="n">last_chain_state</span><span class="p">,</span> <span class="n">last_warmup_state</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">last_state</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">inverse_mass_matrix</span> <span class="o">=</span> <span class="n">adapt_final</span><span class="p">(</span><span class="n">last_warmup_state</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/blackjax/progress_bar.py:105,</span> in <span class="ni">gen_scan_fn.&lt;locals&gt;.scan_wrap</span><span class="nt">(f, init, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="n">func</span> <span class="o">=</span> <span class="n">progress_bar_scan</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">print_rate</span><span class="p">)(</span><span class="n">f</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="n">carry</span> <span class="o">=</span> <span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">105</span> <span class="p">(</span><span class="n">last_state</span><span class="p">,</span> <span class="n">_</span><span class="p">),</span> <span class="n">output</span> <span class="o">=</span> <span class="n">lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">carry</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="k">return</span> <span class="n">last_state</span><span class="p">,</span> <span class="n">output</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">9</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/blackjax/progress_bar.py:90,</span> in <span class="ni">progress_bar_scan.&lt;locals&gt;._progress_bar_scan.&lt;locals&gt;.wrapper_progress_bar</span><span class="nt">(carry, x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="n">subcarry</span><span class="p">,</span> <span class="n">chain_id</span> <span class="o">=</span> <span class="n">carry</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="n">chain_id</span> <span class="o">=</span> <span class="n">_update_progress_bar</span><span class="p">(</span><span class="n">iter_num</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">90</span> <span class="n">subcarry</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">subcarry</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">return</span> <span class="p">(</span><span class="n">subcarry</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">),</span> <span class="n">y</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/blackjax/adaptation/window_adaptation.py:310,</span> in <span class="ni">window_adaptation.&lt;locals&gt;.one_step</span><span class="nt">(carry, xs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span> <span class="n">_</span><span class="p">,</span> <span class="n">rng_key</span><span class="p">,</span> <span class="n">adaptation_stage</span> <span class="o">=</span> <span class="n">xs</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span> <span class="n">state</span><span class="p">,</span> <span class="n">adaptation_state</span> <span class="o">=</span> <span class="n">carry</span>
+<span class="ne">--&gt; </span><span class="mi">310</span> <span class="n">new_state</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">mcmc_kernel</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">rng_key</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span>     <span class="n">state</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span>     <span class="n">logdensity_fn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span>     <span class="n">adaptation_state</span><span class="o">.</span><span class="n">step_size</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">315</span>     <span class="n">adaptation_state</span><span class="o">.</span><span class="n">inverse_mass_matrix</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span>     <span class="o">**</span><span class="n">extra_parameters</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="n">new_adaptation_state</span> <span class="o">=</span> <span class="n">adapt_step</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="n">adaptation_state</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>     <span class="n">adaptation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="n">new_state</span><span class="o">.</span><span class="n">position</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="n">info</span><span class="o">.</span><span class="n">acceptance_rate</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">return</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="p">(</span><span class="n">new_state</span><span class="p">,</span> <span class="n">new_adaptation_state</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>     <span class="n">adaptation_info_fn</span><span class="p">(</span><span class="n">new_state</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">new_adaptation_state</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/blackjax/mcmc/hmc.py:143,</span> in <span class="ni">build_kernel.&lt;locals&gt;.kernel</span><span class="nt">(rng_key, state, logdensity_fn, step_size, inverse_mass_matrix, num_integration_steps)</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="n">momentum</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">sample_momentum</span><span class="p">(</span><span class="n">key_momentum</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="n">integrator_state</span> <span class="o">=</span> <span class="n">integrators</span><span class="o">.</span><span class="n">IntegratorState</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="n">position</span><span class="p">,</span> <span class="n">momentum</span><span class="p">,</span> <span class="n">logdensity</span><span class="p">,</span> <span class="n">logdensity_grad</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">143</span> <span class="n">proposal</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">proposal_generator</span><span class="p">(</span><span class="n">key_integrator</span><span class="p">,</span> <span class="n">integrator_state</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="n">proposal</span> <span class="o">=</span> <span class="n">HMCState</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="n">proposal</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">proposal</span><span class="o">.</span><span class="n">logdensity</span><span class="p">,</span> <span class="n">proposal</span><span class="o">.</span><span class="n">logdensity_grad</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="k">return</span> <span class="n">proposal</span><span class="p">,</span> <span class="n">info</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/blackjax/mcmc/hmc.py:303,</span> in <span class="ni">hmc_proposal.&lt;locals&gt;.generate</span><span class="nt">(rng_key, state)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span> <span class="n">delta_energy</span> <span class="o">=</span> <span class="n">safe_energy_diff</span><span class="p">(</span><span class="n">proposal_energy</span><span class="p">,</span> <span class="n">new_energy</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="n">is_diverging</span> <span class="o">=</span> <span class="o">-</span><span class="n">delta_energy</span> <span class="o">&gt;</span> <span class="n">divergence_threshold</span>
+<span class="ne">--&gt; </span><span class="mi">303</span> <span class="n">sampled_state</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">sample_proposal</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">delta_energy</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">end_state</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span> <span class="n">do_accept</span><span class="p">,</span> <span class="n">p_accept</span><span class="p">,</span> <span class="n">other_proposal_info</span> <span class="o">=</span> <span class="n">info</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span> <span class="n">info</span> <span class="o">=</span> <span class="n">HMCInfo</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>     <span class="n">state</span><span class="o">.</span><span class="n">momentum</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="n">p_accept</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">313</span>     <span class="n">num_integration_steps</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/blackjax/mcmc/proposal.py:227,</span> in <span class="ni">static_binomial_sampling</span><span class="nt">(rng_key, log_p_accept, proposal, new_proposal)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">def</span><span class="w"> </span><span class="nf">static_binomial_sampling</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span>     <span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span><span class="p">,</span> <span class="n">log_p_accept</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">proposal</span><span class="p">,</span> <span class="n">new_proposal</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Accept or reject a proposal.</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="sd">     In the static setting, the probability with which the new proposal is</span>
+<span class="sd">   (...)    225 </span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">227</span>     <span class="n">p_accept</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_p_accept</span><span class="p">),</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="n">do_accept</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">bernoulli</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">p_accept</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span>     <span class="n">info</span> <span class="o">=</span> <span class="n">do_accept</span><span class="p">,</span> <span class="n">p_accept</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">10</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/jax/_src/linear_util.py:192,</span> in <span class="ni">WrappedFun.call_wrapped</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="n">gen</span> <span class="o">=</span> <span class="n">gen_static_args</span> <span class="o">=</span> <span class="n">out_store</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">192</span>   <span class="n">ans</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span> <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>   <span class="c1"># Some transformations yield from inside context managers, so we have to</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span>   <span class="c1"># interrupt them before reraising the exception. Otherwise they will only</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>   <span class="c1"># get garbage-collected at some later time, running their cleanup tasks</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>   <span class="c1"># only after this exception is handled, which can corrupt the global</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span>   <span class="c1"># state.</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span>   <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: clip() got an unexpected keyword argument &#39;max&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -732,10 +814,10 @@ If you set the Markov chain up carefully, you can ensure that the parameters wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f14dcfbb890&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x36a818df0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/053ff8e5a5206d20b618fd8112ec517e86a8a52d93c5be7a221b5b5a5756d33f.png" src="../../_images/053ff8e5a5206d20b618fd8112ec517e86a8a52d93c5be7a221b5b5a5756d33f.png" />
+<img alt="../../_images/724a26d98ac700ed1f6e3b0b2692fd311abd04d25c471f57ec7238ca030e077d.png" src="../../_images/724a26d98ac700ed1f6e3b0b2692fd311abd04d25c471f57ec7238ca030e077d.png" />
 </div>
 </div>
 </section>
@@ -772,7 +854,7 @@ If you set the Markov chain up carefully, you can ensure that the parameters wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e3983a90ba7fdceda36d015521ce771c2caa3557aad99d41fbd8be7ab6792d98.png" src="../../_images/e3983a90ba7fdceda36d015521ce771c2caa3557aad99d41fbd8be7ab6792d98.png" />
+<img alt="../../_images/ccdf7697a3c88a360eb1b3758f14cbb7cc880c5a0ea048d7c9780fd5f74f4a9b.png" src="../../_images/ccdf7697a3c88a360eb1b3758f14cbb7cc880c5a0ea048d7c9780fd5f74f4a9b.png" />
 </div>
 </div>
 </section>
@@ -834,11 +916,6 @@ which builds on dynamax.).</p>
     }
 </style>
 </div><div class="output text_html">
-    <div>
-      <progress value='10' class='' max='10' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [10/10 00:00&lt;?]
-    </div>
-    </div><div class="output text_html">
 <style>
     /* Turns off some styling */
     progress {
@@ -856,8 +933,13 @@ which builds on dynamax.).</p>
 </style>
 </div><div class="output text_html">
     <div>
+      <progress value='10' class='' max='10' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [10/10 00:00&lt;?]
+    </div>
+    </div><div class="output text_html">
+    <div>
       <progress value='1000' class='' max='1000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [1000/1000 00:14&lt;00:00]
+      100.00% [1000/1000 00:11&lt;00:00]
     </div>
     </div></div>
 </div>
@@ -876,10 +958,10 @@ which builds on dynamax.).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f14dc743890&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x3c382f8e0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/d4a94a5253c4408a07ec2fb9cbbfaf90ad9f00d9ccdbd8ee8fcaf5277a7dd3d3.png" src="../../_images/d4a94a5253c4408a07ec2fb9cbbfaf90ad9f00d9ccdbd8ee8fcaf5277a7dd3d3.png" />
+<img alt="../../_images/c747ae5ab689c8834bf6e13eb076964e668c3101b81256b81166950d41532936.png" src="../../_images/c747ae5ab689c8834bf6e13eb076964e668c3101b81256b81166950d41532936.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -907,7 +989,7 @@ which builds on dynamax.).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/33173d9265ef9f7e4f1176db4f6938d357393a49c3af09eb636aed77d2a61ca1.png" src="../../_images/33173d9265ef9f7e4f1176db4f6938d357393a49c3af09eb636aed77d2a61ca1.png" />
+<img alt="../../_images/5b5eb80036b04e172aea3b9a92bd29184f56aab42efcf7b14a907b325d3e6ca2.png" src="../../_images/5b5eb80036b04e172aea3b9a92bd29184f56aab42efcf7b14a907b325d3e6ca2.png" />
 </div>
 </div>
 </section>
